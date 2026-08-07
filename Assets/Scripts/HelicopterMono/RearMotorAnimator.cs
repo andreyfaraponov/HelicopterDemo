@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace HelicopterDemo
+namespace HelicopterDemo.HelicopterMono
 {
     public class RearMotorAnimator : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 using HelicopterDemo.Models;
 using UnityEngine;
 
-namespace HelicopterDemo
+namespace HelicopterDemo.HelicopterMono
 {
     public class HelicopterVisual : MonoBehaviour
     {

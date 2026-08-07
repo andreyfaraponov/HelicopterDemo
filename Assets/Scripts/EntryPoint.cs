@@ -1,5 +1,6 @@
 
 using HelicopterDemo.Configs;
+using HelicopterDemo.HelicopterMono;
 using UnityEngine;
 
 namespace HelicopterDemo

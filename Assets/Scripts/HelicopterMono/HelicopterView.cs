@@ -1,12 +1,10 @@
-using System;
 using System.Collections.Generic;
 using HelicopterDemo.Configs;
 using HelicopterDemo.Forces;
-using HelicopterDemo.HelicopterMono;
 using HelicopterDemo.Models;
 using UnityEngine;
 
-namespace HelicopterDemo
+namespace HelicopterDemo.HelicopterMono
 {
     public interface IHelicopterView
     {
