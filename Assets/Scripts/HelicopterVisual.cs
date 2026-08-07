@@ -19,7 +19,7 @@ namespace HelicopterDemo
 
         private void Update()
         {
-            UpdateCurrentRpm(_movementModel.HeiphtInput);
+            UpdateCurrentRpm(_movementModel.HeightInput);
             var degPerSec = _currentRotorRpm * 360f / 60f;
             mainRotor.Rotate(Vector3.forward, degPerSec * Time.deltaTime, Space.Self);
         }

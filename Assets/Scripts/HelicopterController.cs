@@ -33,7 +33,7 @@ namespace HelicopterDemo
 
         private void OnThrottle(float value)
         {
-            _movementModel.HeiphtInput = value;
+            _movementModel.HeightInput = value;
         }
 
         private void OnMovement(Vector2 value)

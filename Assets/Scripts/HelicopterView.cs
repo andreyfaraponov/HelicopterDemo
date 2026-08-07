@@ -97,7 +97,7 @@ namespace HelicopterDemo
         private void ApplyHeight()
         {
             float hoverForce = mainRigidbody.mass * -Physics.gravity.y;
-            float targetLift = hoverForce + _inputModel.HeiphtInput * verticalForce;
+            float targetLift = hoverForce + _inputModel.HeightInput * verticalForce;
 
             float minLift = hoverForce * minLiftMultiplier;
             float maxLift = hoverForce * maxLiftMultiplier;
@@ -106,7 +106,7 @@ namespace HelicopterDemo
 
             float dampingForce = 0;
 
-            var dampingMultiplier = Mathf.Approximately(_inputModel.HeiphtInput, 0f) ? 1f : 0.25f;
+            var dampingMultiplier = Mathf.Approximately(_inputModel.HeightInput, 0f) ? 1f : 0.25f;
 
             float verticalSpeed = Vector3.Dot(mainRigidbody.linearVelocity, Vector3.up);
             dampingForce = -dampingMultiplier * verticalSpeed * verticalDamping;
