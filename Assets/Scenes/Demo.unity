@@ -1106,6 +1106,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6461995232554559819, guid: 5243dfcbeaea54ca38fbdd49006344cf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.55629474
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461995232554559819, guid: 5243dfcbeaea54ca38fbdd49006344cf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.43650436
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461995232554559819, guid: 5243dfcbeaea54ca38fbdd49006344cf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5562949
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461995232554559819, guid: 5243dfcbeaea54ca38fbdd49006344cf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.4365043
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461995232554559819, guid: 5243dfcbeaea54ca38fbdd49006344cf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461995232554559819, guid: 5243dfcbeaea54ca38fbdd49006344cf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -796.24
+      objectReference: {fileID: 0}
     - target: {fileID: 6612761627713486191, guid: 5243dfcbeaea54ca38fbdd49006344cf, type: 3}
       propertyPath: m_Name
       value: HelicopterView

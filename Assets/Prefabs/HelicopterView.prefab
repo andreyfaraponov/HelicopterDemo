@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 6587476056841427767}
   - component: {fileID: 7748223676773707947}
   m_Layer: 0
-  m_Name: RearPropeller
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -236,11 +236,11 @@ Transform:
   m_GameObject: {fileID: 3725633924865943712}
   serializedVersion: 2
   m_LocalRotation: {x: -0.50000006, y: -0.5, z: 0.5, w: 0.50000006}
-  m_LocalPosition: {x: 0.51136994, y: 4.007259, z: -11.941992}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 890605184290261502}
+  m_Father: {fileID: 1816668116692729749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6587476056841427767
 MeshFilter:
@@ -330,7 +330,7 @@ Transform:
   m_Children:
   - {fileID: 662027453902022484}
   - {fileID: 471046303465597169}
-  - {fileID: 6461995232554559819}
+  - {fileID: 1816668116692729749}
   m_Father: {fileID: 3374026285636473469}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4943487719945048195
@@ -463,3 +463,50 @@ CapsuleCollider:
   m_Height: 8.879317
   m_Direction: 2
   m_Center: {x: 0, y: 1.6630838, z: 0.6153407}
+--- !u!1 &7386369132519515179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1816668116692729749}
+  - component: {fileID: 101823961544024416}
+  m_Layer: 0
+  m_Name: RearPropellerContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1816668116692729749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386369132519515179}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.51136994, y: 4.007259, z: -11.941992}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6461995232554559819}
+  m_Father: {fileID: 890605184290261502}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &101823961544024416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386369132519515179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ca60c22787240c78ad6913642c41cd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HelicopterDemo.RearMotorAnimator
+  rearMotor: {fileID: 1816668116692729749}
+  rotationSpeed: 600
