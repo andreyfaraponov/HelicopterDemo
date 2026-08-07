@@ -13,7 +13,7 @@ namespace HelicopterDemo
         {
             _inputReader = inputReader;
             _helicopterView = helicopterView;
-            _helicopterView.SetMovementModel(_movementModel);
+            _helicopterView.Initialize(_movementModel);
 
             _inputReader.RotationYAxisEvent += OnUpRotation;
             _inputReader.MovementEvent += OnMovement;
@@ -29,7 +29,7 @@ namespace HelicopterDemo
 
         private void OnThrottle(float value)
         {
-            _movementModel.Throttle = value;
+            _movementModel.HeiphtInput = value;
         }
 
         private void OnMovement(Vector2 value)

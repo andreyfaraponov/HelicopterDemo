@@ -18,6 +18,7 @@ namespace HelicopterDemo
         private void Start()
         {
             _controller = new HelicopterController(_inputReader, helicopterView);
+            _inputReader.Enable(enable: true);
         }
 
         private void OnDestroy()

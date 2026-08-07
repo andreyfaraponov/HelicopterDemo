@@ -33,5 +33,17 @@ namespace HelicopterDemo
         {
             _input.Dispose();
         }
+
+        public void Enable(bool enable)
+        {
+            if (enable)
+            {
+                _input.Enable();
+            }
+            else
+            {
+                _input.Disable();
+            }
+        }
     }
 }
