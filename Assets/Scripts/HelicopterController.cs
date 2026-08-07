@@ -3,7 +3,11 @@ using UnityEngine;
 
 namespace HelicopterDemo
 {
-    public class HelicopterController : IDisposable
+    public interface IVehicleController : IDisposable
+    {
+    }
+
+    public class HelicopterController : IVehicleController
     {
         private readonly IInputReader _inputReader;
         private readonly IHelicopterView _helicopterView;
@@ -34,6 +38,7 @@ namespace HelicopterDemo
 
         private void OnMovement(Vector2 value)
         {
+            Debug.Log($"Movement: {value}");
             _movementModel.Movement = value;
         }
 

@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2058089841728971291}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.05, z: 5.33}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -346,39 +346,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HelicopterDemo.HelicopterVisual
   mainRotor: {fileID: 471046303465597169}
-  maxRotorRpm: 10
+  idleRpm: 280
+  maxRpm: 850
   rotorRpmResponse: 4
---- !u!1 &6260547776479654848
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4537387742518357504}
-  m_Layer: 0
-  m_Name: TorquePoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4537387742518357504
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6260547776479654848}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.43, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3374026285636473469}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6612761627713486191
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +382,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 890605184290261502}
-  - {fileID: 4537387742518357504}
   - {fileID: 7146445177495572230}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -434,7 +403,15 @@ MonoBehaviour:
   minLiftMultiplier: 0.2
   maxLiftMultiplier: 1.8
   finalLift: 0
-  maxLiftForce: 105000
+  forwardForce: 25000
+  backwardForce: 2000
+  maxForwardSpeed: 45
+  maxBackwardSpeed: 20
+  pitchTorque: 12000
+  maxAngularSpeed: 0.8
+  maxPitchAngularSpeed: 0.8
+  pitchLeanDirection: -1
+  inputDeadZone: 0.5
   visual: {fileID: 4943487719945048195}
 --- !u!54 &7579232435064686671
 Rigidbody:
@@ -445,8 +422,8 @@ Rigidbody:
   m_GameObject: {fileID: 6612761627713486191}
   serializedVersion: 5
   m_Mass: 2800
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 0.6
+  m_AngularDamping: 3
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}

@@ -1,4 +1,4 @@
-using System;
+
 using UnityEngine;
 
 namespace HelicopterDemo
@@ -7,7 +7,7 @@ namespace HelicopterDemo
     {
         [SerializeField] private HelicopterView helicopterView;
         
-        private HelicopterController _controller;
+        private IVehicleController _controller;
         private InputReader _inputReader;
 
         private void Awake()
