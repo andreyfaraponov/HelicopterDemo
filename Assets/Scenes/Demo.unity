@@ -883,6 +883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HelicopterDemo.EntryPoint
   helicopterView: {fileID: 6804261673803692806}
+  helicopterConfig: {fileID: 11400000, guid: 722a842665346400085bafecc4eb75d2, type: 2}
 --- !u!4 &1658613320
 Transform:
   m_ObjectHideFlags: 0
@@ -910,7 +911,7 @@ GameObject:
   - component: {fileID: 1801138222}
   - component: {fileID: 1801138221}
   - component: {fileID: 1801138220}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

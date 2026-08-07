@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LiftConfig
   m_EditorClassIdentifier: Assembly-CSharp::HelicopterDemo.Configs.LiftConfig
   <ForcePower>k__BackingField: 40000
-  <DampingPower>k__BackingField: 4500
+  <DampingPower>k__BackingField: 1500
   <InputDeadZone>k__BackingField: 0.1
   <MinMultiplier>k__BackingField: 0.15
   <MaxMultiplier>k__BackingField: 2.5

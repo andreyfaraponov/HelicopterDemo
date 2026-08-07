@@ -1,4 +1,5 @@
 using System;
+using HelicopterDemo.Configs;
 using HelicopterDemo.Models;
 using UnityEngine;
 
@@ -11,14 +12,13 @@ namespace HelicopterDemo
     public class HelicopterController : IVehicleController
     {
         private readonly IInputReader _inputReader;
-        private readonly IHelicopterView _helicopterView;
         private readonly MovementModel _movementModel = new();
 
-        public HelicopterController(IInputReader inputReader, IHelicopterView helicopterView)
+        public HelicopterController(IInputReader inputReader, IHelicopterView helicopterView,
+            HelicopterConfig helicopterConfig)
         {
             _inputReader = inputReader;
-            _helicopterView = helicopterView;
-            _helicopterView.Initialize(_movementModel);
+            helicopterView.Initialize(_movementModel, helicopterConfig);
 
             _inputReader.RotationYAxisEvent += OnUpRotation;
             _inputReader.MovementEvent += OnMovement;
@@ -39,7 +39,6 @@ namespace HelicopterDemo
 
         private void OnMovement(Vector2 value)
         {
-            Debug.Log($"Movement: {value}");
             _movementModel.Movement = value;
         }
 

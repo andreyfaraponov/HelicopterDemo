@@ -1,4 +1,5 @@
 
+using HelicopterDemo.Configs;
 using UnityEngine;
 
 namespace HelicopterDemo
@@ -6,6 +7,7 @@ namespace HelicopterDemo
     public class EntryPoint : MonoBehaviour
     {
         [SerializeField] private HelicopterView helicopterView;
+        [SerializeField] private HelicopterConfig helicopterConfig;
         
         private IVehicleController _controller;
         private InputReader _inputReader;
@@ -17,7 +19,7 @@ namespace HelicopterDemo
 
         private void Start()
         {
-            _controller = new HelicopterController(_inputReader, helicopterView);
+            _controller = new HelicopterController(_inputReader, helicopterView, helicopterConfig);
             _inputReader.Enable(enable: true);
         }
 
