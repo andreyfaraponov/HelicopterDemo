@@ -235,13 +235,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3725633924865943712}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.50000006, y: -0.5, z: 0.5, w: 0.50000006}
+  m_LocalRotation: {x: -0.43650436, y: 0.5562949, z: 0.4365043, w: -0.55629474}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1816668116692729749}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: -796.24}
 --- !u!33 &6587476056841427767
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -398,20 +398,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HelicopterDemo.HelicopterView
   mainRigidbody: {fileID: 7579232435064686671}
-  verticalForce: 35000
-  verticalDamping: 6000
+  liftConfig: {fileID: 11400000, guid: 50032269d06ba4b8caf6767348526f0b, type: 2}
+  rollConfig: {fileID: 11400000, guid: 6bd9e0d6cf7674e4a91c329f72fb371c, type: 2}
+  yawConfig: {fileID: 11400000, guid: 10c00c0f2464542bc9bc8da29fedec98, type: 2}
+  pitchConfig: {fileID: 11400000, guid: 96c5a4e082cb3478893c632ee5cd8a98, type: 2}
+  dampingConfig: {fileID: 0}
+  verticalForce: 40000
+  verticalDamping: 4500
   minLiftMultiplier: 0.2
-  maxLiftMultiplier: 1.8
-  finalLift: 0
-  forwardForce: 25000
-  backwardForce: 2000
-  maxForwardSpeed: 45
-  maxBackwardSpeed: 20
-  pitchTorque: 12000
-  maxAngularSpeed: 0.8
-  maxPitchAngularSpeed: 0.8
+  maxLiftMultiplier: 2.6
+  forwardForce: 65000
+  backwardForce: 45000
+  maxForwardSpeed: 55
+  maxBackwardSpeed: 28
+  pitchTorque: 90000
+  maxAngularSpeed: 10
+  maxPitchAngularSpeed: 2.5
   pitchLeanDirection: -1
-  inputDeadZone: 0.5
+  maxTowardPitchAngle: 40
+  maxBackwardPitchAngle: -30
+  inputDeadZone: 0.2
   visual: {fileID: 4943487719945048195}
 --- !u!54 &7579232435064686671
 Rigidbody:
@@ -447,7 +453,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6612761627713486191}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: bfdc464b26230447ea9583690de4f259, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

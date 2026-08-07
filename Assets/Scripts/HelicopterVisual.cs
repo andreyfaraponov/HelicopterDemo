@@ -1,3 +1,4 @@
+using HelicopterDemo.Models;
 using UnityEngine;
 
 namespace HelicopterDemo

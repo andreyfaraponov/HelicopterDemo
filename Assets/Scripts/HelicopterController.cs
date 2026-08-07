@@ -1,4 +1,5 @@
 using System;
+using HelicopterDemo.Models;
 using UnityEngine;
 
 namespace HelicopterDemo
@@ -44,7 +45,7 @@ namespace HelicopterDemo
 
         private void OnUpRotation(float value)
         {
-            _movementModel.Rotation = value;
+            _movementModel.Yaw = value;
         }
     }
 }
