@@ -23,7 +23,7 @@ namespace HelicopterDemo.UI
             UpdateStats(_rigidbody.linearVelocity.magnitude, _rigidbody.position.y, _rigidbody.position);
         }
 
-        public void SetObserveObject(HelicopterView helicopterView)
+        public void SetObserveObject(IHelicopterView helicopterView)
         {
             _rigidbody = helicopterView.MainRigidbody;
         }

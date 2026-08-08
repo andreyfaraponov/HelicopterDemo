@@ -7,7 +7,7 @@ namespace HelicopterDemo
 {
     public class DemoController
     {
-        private readonly HelicopterView _helicopterView;
+        private readonly IHelicopterView _helicopterView;
         private readonly HelicopterConfig _helicopterConfig;
         private readonly StatsView _statsView;
         private readonly WindowsService _windowsService;
