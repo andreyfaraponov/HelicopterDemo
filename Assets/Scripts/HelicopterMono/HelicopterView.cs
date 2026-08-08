@@ -9,6 +9,8 @@ namespace HelicopterDemo.HelicopterMono
     public interface IHelicopterView
     {
         void Initialize(MovementModel movementModel, HelicopterConfig helicopterConfig);
+        void ResetAll();
+        Rigidbody MainRigidbody { get; }
     }
 
     public class HelicopterView : MonoBehaviour, IHelicopterView
@@ -16,6 +18,8 @@ namespace HelicopterDemo.HelicopterMono
         [SerializeField] private Rigidbody mainRigidbody;
         [SerializeField] private GroundDetector groundDetector;
         [SerializeField] private HelicopterVisual visual;
+        
+        public Rigidbody MainRigidbody => mainRigidbody;
 
         private HelicopterConfig _helicopterConfig;
 
@@ -35,6 +39,11 @@ namespace HelicopterDemo.HelicopterMono
 
         private void FixedUpdate()
         {
+            if (_forceModel == null)
+            {
+                return;
+            }
+            
             _forceModel.Clear();
 
             if (!_grounded)
@@ -63,9 +72,17 @@ namespace HelicopterDemo.HelicopterMono
         {
             _movementModel = movementModel;
             _helicopterConfig = helicopterConfig;
+            PrepareForces();
             _forceModel = new ForceModel();
             visual.Initialize(movementModel);
-            PrepareForces();
+        }
+
+        public void ResetAll()
+        {
+            transform.position = Vector3.zero;
+            transform.rotation = Quaternion.identity;
+            mainRigidbody.linearVelocity = Vector3.zero;
+            mainRigidbody.angularVelocity = Vector3.zero;
         }
 
         private void PrepareForces()

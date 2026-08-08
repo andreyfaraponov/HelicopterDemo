@@ -4,45 +4,48 @@ using UnityEngine;
 
 namespace HelicopterDemo
 {
-    public interface IInputReader
+    public interface IInputReader : IDisposable
     {
         event Action<float> RotationYAxisEvent;
         event Action<Vector2> MovementEvent;
         event Action<float> ThrottleEvent;
+        void Enable(bool enable);
     }
 
-    public class InputReader : IDisposable, IInputReader
+    public class InputReader : IInputReader
     {
         public event Action<float> RotationYAxisEvent;
         public event Action<Vector2> MovementEvent;
         public event Action<float> ThrottleEvent;
 
-        private readonly HelicopterInput _input = new();
+        public readonly HelicopterInput InputSchema;
+
 
         public InputReader()
         {
-            _input.Helicopter.HorizontalRotation.performed += ctx => RotationYAxisEvent?.Invoke(ctx.ReadValue<float>());
-            _input.Helicopter.HorizontalRotation.canceled += _ => RotationYAxisEvent?.Invoke(0);
-            _input.Helicopter.HorizontalMovement.performed += ctx => MovementEvent?.Invoke(ctx.ReadValue<Vector2>());
-            _input.Helicopter.HorizontalMovement.canceled += _ => MovementEvent?.Invoke(Vector2.zero);
-            _input.Helicopter.HeightAxis.performed += ctx => ThrottleEvent?.Invoke(ctx.ReadValue<float>());
-            _input.Helicopter.HeightAxis.canceled += _ => ThrottleEvent?.Invoke(0);
+            InputSchema = new HelicopterInput();
+            InputSchema.Helicopter.HorizontalRotation.performed += ctx => RotationYAxisEvent?.Invoke(ctx.ReadValue<float>());
+            InputSchema.Helicopter.HorizontalRotation.canceled += _ => RotationYAxisEvent?.Invoke(0);
+            InputSchema.Helicopter.HorizontalMovement.performed += ctx => MovementEvent?.Invoke(ctx.ReadValue<Vector2>());
+            InputSchema.Helicopter.HorizontalMovement.canceled += _ => MovementEvent?.Invoke(Vector2.zero);
+            InputSchema.Helicopter.HeightAxis.performed += ctx => ThrottleEvent?.Invoke(ctx.ReadValue<float>());
+            InputSchema.Helicopter.HeightAxis.canceled += _ => ThrottleEvent?.Invoke(0);
         }
 
         public void Dispose()
         {
-            _input.Dispose();
+            InputSchema.Dispose();
         }
 
         public void Enable(bool enable)
         {
             if (enable)
             {
-                _input.Enable();
+                InputSchema.Enable();
             }
             else
             {
-                _input.Disable();
+                InputSchema.Disable();
             }
         }
     }

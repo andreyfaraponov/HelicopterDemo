@@ -16,4 +16,4 @@ MonoBehaviour:
   <DampingPower>k__BackingField: 20000
   <MaxAngularSpeed>k__BackingField: 3
   <InputDeadZone>k__BackingField: 0.1
-  <Direction>k__BackingField: 1
+  <Direction>k__BackingField: -1

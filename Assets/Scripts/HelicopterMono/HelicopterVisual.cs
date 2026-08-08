@@ -9,6 +9,7 @@ namespace HelicopterDemo.HelicopterMono
         [SerializeField] private float idleRpm = 280;
         [SerializeField] private float maxRpm = 850;
         [SerializeField] private float rotorRpmResponse = 6;
+        [SerializeField] private RearMotorAnimator rearMotorAnimator;
 
         private float _currentRotorRpm;
         private MovementModel _movementModel;
@@ -16,10 +17,16 @@ namespace HelicopterDemo.HelicopterMono
         public void Initialize(MovementModel movementModel)
         {
             _movementModel = movementModel;
+            rearMotorAnimator.enabled = true;
         }
 
         private void Update()
         {
+            if (_movementModel == null)
+            {
+                return;
+            }
+            
             UpdateCurrentRpm(_movementModel.HeightInput);
             var degPerSec = _currentRotorRpm * 360f / 60f;
             mainRotor.Rotate(Vector3.forward, degPerSec * Time.deltaTime, Space.Self);
