@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using HelicopterDemo.Configs;
 using HelicopterDemo.Forces;
@@ -8,6 +9,7 @@ namespace HelicopterDemo.HelicopterMono
 {
     public interface IHelicopterView
     {
+        event Action CrashedEvent;
         void Initialize(MovementModel movementModel, HelicopterConfig helicopterConfig);
         void ResetAll();
         Rigidbody MainRigidbody { get; }
@@ -15,8 +17,11 @@ namespace HelicopterDemo.HelicopterMono
 
     public class HelicopterView : MonoBehaviour, IHelicopterView
     {
+        public event Action CrashedEvent;
+        
         [SerializeField] private Rigidbody mainRigidbody;
         [SerializeField] private GroundDetector groundDetector;
+        [SerializeField] private GroundDetector crashGroundDetector;
         [SerializeField] private HelicopterVisual visual;
         
         public Rigidbody MainRigidbody => mainRigidbody;
@@ -34,6 +39,7 @@ namespace HelicopterDemo.HelicopterMono
         private void Start()
         {
             groundDetector.GroundDetectedEvent += GroundDetected;
+            crashGroundDetector.GroundDetectedEvent += CrashDetected;
             _grounded = true;
         }
 
@@ -79,6 +85,7 @@ namespace HelicopterDemo.HelicopterMono
 
         public void ResetAll()
         {
+            _forces.Clear();
             transform.position = Vector3.zero;
             transform.rotation = Quaternion.identity;
             mainRigidbody.linearVelocity = Vector3.zero;
@@ -94,6 +101,16 @@ namespace HelicopterDemo.HelicopterMono
             _forces.Add(new RollForce(mainRigidbody, transform, _helicopterConfig.RollConfig));
             _forces.Add(new YawForce(mainRigidbody, transform, _helicopterConfig.YawConfig));
             _forces.Add(new PitchForce(mainRigidbody, transform, _helicopterConfig.PitchConfig));
+        }
+
+        private void CrashDetected(bool crashed)
+        {
+            if (!crashed)
+            {
+                return;
+            }
+            
+            CrashedEvent?.Invoke();
         }
 
         private void GroundDetected(bool detected)

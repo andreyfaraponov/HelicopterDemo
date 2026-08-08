@@ -30,6 +30,7 @@ namespace HelicopterDemo
         {
             _statsView.SetObserveObject(_helicopterView);
             var popup = _windowsService.GetStartPopup();
+            popup.UpdateTitle("Helicopter demo!");
             await popup.ShowAsync();
             popup.StartEvent += OnStart;
             popup.HelpEvent += OnHelp;
@@ -37,7 +38,6 @@ namespace HelicopterDemo
 
         private async void OnHelp()
         {
-            Debug.Log("Help");
             if (_isHelpOpened)
             {
                 return;
@@ -58,8 +58,22 @@ namespace HelicopterDemo
 
         private void OnStart()
         {
+            _helicopterView.ResetAll();
             _controller = new HelicopterController(_inputReader, _helicopterView, _helicopterConfig);
+            _controller.CrashedEvent += OnCrashed;
             _inputReader.Enable(enable: true);
+        }
+
+        private async void OnCrashed()
+        {
+            _inputReader.Enable(false);
+            _controller.CrashedEvent -= OnCrashed;
+            _controller?.Dispose();
+            var popup = _windowsService.GetStartPopup();
+            popup.UpdateTitle("Helicopter was crashed!");
+            await popup.ShowAsync();
+            popup.StartEvent += OnStart;
+            popup.HelpEvent += OnHelp;
         }
     }
 }

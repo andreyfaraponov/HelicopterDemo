@@ -8,19 +8,25 @@ namespace HelicopterDemo
 {
     public interface IVehicleController : IDisposable
     {
+        event Action CrashedEvent;
     }
 
     public class HelicopterController : IVehicleController
     {
+        public event Action CrashedEvent;
+        
         private readonly IInputReader _inputReader;
         private readonly MovementModel _movementModel = new();
+        private readonly IHelicopterView _helicopterView;
 
         public HelicopterController(IInputReader inputReader, IHelicopterView helicopterView,
             HelicopterConfig helicopterConfig)
         {
             _inputReader = inputReader;
-            helicopterView.Initialize(_movementModel, helicopterConfig);
+            _helicopterView = helicopterView;
+            _helicopterView.Initialize(_movementModel, helicopterConfig);
 
+            _helicopterView.CrashedEvent += OnCrashed;
             _inputReader.RotationYAxisEvent += OnUpRotation;
             _inputReader.MovementEvent += OnMovement;
             _inputReader.ThrottleEvent += OnThrottle;
@@ -28,6 +34,7 @@ namespace HelicopterDemo
 
         public void Dispose()
         {
+            _helicopterView.CrashedEvent -= OnCrashed;
             _inputReader.RotationYAxisEvent -= OnUpRotation;
             _inputReader.MovementEvent -= OnMovement;
             _inputReader.ThrottleEvent -= OnThrottle;
@@ -46,6 +53,11 @@ namespace HelicopterDemo
         private void OnUpRotation(float value)
         {
             _movementModel.Yaw = value;
+        }
+
+        private void OnCrashed()
+        {
+            CrashedEvent?.Invoke();
         }
     }
 }

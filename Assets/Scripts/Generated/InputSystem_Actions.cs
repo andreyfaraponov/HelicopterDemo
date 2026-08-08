@@ -201,17 +201,6 @@ namespace Demo
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""3b25703d-877b-43ee-8347-1810f290edd4"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""HorizontalMovement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""down"",
                     ""id"": ""7c995ca3-38f0-4ecd-8b2b-a804605a9f24"",
                     ""path"": ""<Keyboard>/w"",
@@ -226,6 +215,17 @@ namespace Demo
                     ""name"": ""left"",
                     ""id"": ""0616a7e4-9992-4d3c-80d3-739dbbe34dd0"",
                     ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HorizontalMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""3b25703d-877b-43ee-8347-1810f290edd4"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

@@ -350,6 +350,72 @@ MonoBehaviour:
   maxRpm: 850
   rotorRpmResponse: 4
   rearMotorAnimator: {fileID: 101823961544024416}
+--- !u!1 &5300522245543694882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6052086536303992975}
+  - component: {fileID: 183119468158431582}
+  - component: {fileID: 1903810777611529354}
+  m_Layer: 7
+  m_Name: CrashGroundDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6052086536303992975
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5300522245543694882}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.04, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3374026285636473469}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &183119468158431582
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5300522245543694882}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.664222, y: 2.0451295, z: 8.625736}
+  m_Center: {x: 0, y: 0.16103184, z: -0.2922182}
+--- !u!114 &1903810777611529354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5300522245543694882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29aeb049d7341a19a7076c6ce4f9c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HelicopterDemo.HelicopterMono.GroundDetector
 --- !u!1 &6612761627713486191
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,6 +451,7 @@ Transform:
   - {fileID: 890605184290261502}
   - {fileID: 7146445177495572230}
   - {fileID: 921016701921966950}
+  - {fileID: 6052086536303992975}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &63066843151392453
@@ -401,6 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HelicopterDemo.HelicopterView
   mainRigidbody: {fileID: 7579232435064686671}
   groundDetector: {fileID: 3378032658841545215}
+  crashGroundDetector: {fileID: 1903810777611529354}
   visual: {fileID: 4943487719945048195}
 --- !u!54 &7579232435064686671
 Rigidbody:

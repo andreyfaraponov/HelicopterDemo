@@ -67,9 +67,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HelicopterDemo.UI.StartPopup
   canvasGroup: {fileID: 1584975671423169998}
-  showTimeSeconds: 0.3
+  showTimeSeconds: 0.15
   startButton: {fileID: 1359838590901592218}
   helpButton: {fileID: 2165729913992761547}
+  title: {fileID: 968651406749725962}
 --- !u!1 &1103577038558472108
 GameObject:
   m_ObjectHideFlags: 0
